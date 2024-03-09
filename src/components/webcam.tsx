@@ -26,16 +26,20 @@ export const WebcamCapture = () => {
   return (
     <div className="mx-4 my-8">
       <div className="flex md:flex-row flex-col gap-4">
-        <div className="md:w-1/2 w-full relative">
+        <div className="md:w-1/2 w-full relative group">
           <Webcam
             ref={webcamRef}
             audio={false}
             screenshotFormat="image/jpeg"
             className="rounded-lg w-full"
           />
-          <CameraButton Icon={CameraIcon} onClick={onImageCapture} />
+          <CameraButton
+            Icon={CameraIcon}
+            onClick={onImageCapture}
+            className="md:group-hover:flex md:hidden"
+          />
         </div>
-        <div className="md:w-1/2 w-full relative">
+        <div className="md:w-1/2 w-full relative group">
           {capturedImage && (
             <>
               <img
@@ -43,7 +47,11 @@ export const WebcamCapture = () => {
                 alt="Captured image"
                 className="rounded-lg w-full"
               />
-              <CameraButton Icon={DownloadIcon} onClick={onImageDownload} />
+              <CameraButton
+                Icon={DownloadIcon}
+                onClick={onImageDownload}
+                className="md:group-hover:flex md:hidden"
+              />
             </>
           )}
         </div>

@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, useState } from 'react';
 import { Button } from './ui';
 import { Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 type CameraButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,6 +11,7 @@ type CameraButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const CameraButton = ({
   Icon,
   onClick,
+  className,
   ...props
 }: CameraButtonProps) => {
   const [isPending, setIsPending] = useState(false);
@@ -28,10 +30,10 @@ export const CameraButton = ({
       variant="outline"
       onClick={onCameraButtonClick}
       {...props}
-      className="absolute bottom-2 right-2"
+      className={cn('absolute bottom-2 right-2', className)}
       disabled={isPending}
     >
-      {isPending ? <Check className='text-green-500'/> : <Icon />}
+      {isPending ? <Check className="text-green-500" /> : <Icon />}
     </Button>
   );
 };
