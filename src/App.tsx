@@ -1,10 +1,11 @@
 import { AppProvider } from './components/providers';
 import { Button } from './components/ui';
+import { WebcamCapture } from './components';
 
 const App = () => {
   return (
     <AppProvider>
-      <section className='flex items-center justify-center mt-4'>
+      <section className="flex items-center justify-center mt-4">
         <div className="flex flex-col gap-4 w-[600px]">
           <div className="text-lg text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -17,6 +18,7 @@ const App = () => {
           </Button>
         </div>
       </section>
+      <WebcamCapture />
     </AppProvider>
   );
 };
