@@ -4,7 +4,7 @@ export const PageProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
-      <main className="container">{children}</main>
+      <main className="container mt-10">{children}</main>
     </>
   );
 };

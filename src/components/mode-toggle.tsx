@@ -8,7 +8,6 @@ export const ModeToggle = () => {
   const ThemeIcon = theme === 'dark' ? Sun : Moon;
   const onThemeButtonClick = () => setTheme(theme === 'dark'? 'light' : 'dark');
 
-
   return (
     <div>
       <Button size="icon" onClick={onThemeButtonClick}>

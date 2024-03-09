@@ -27,7 +27,6 @@ export const CameraButton = ({
   return (
     <Button
       size="icon"
-      variant="outline"
       onClick={onCameraButtonClick}
       {...props}
       className={cn('absolute bottom-2 right-2', className)}
