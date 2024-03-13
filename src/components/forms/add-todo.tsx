@@ -30,7 +30,7 @@ export const AddTodo = () => {
 
       cache.writeQuery({
         query: ALL_TODO,
-        data: { todos: [...todos, newTodo] },
+        data: { todos: [...todos, newTodo ] },
       });
     },
   });
