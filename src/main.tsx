@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { HomePage, CameraPage, AboutPage } from './pages';
+import { HomePage, CameraPage, TodosPage } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppProvider } from './components/providers';
+import { MainProvider } from './components/providers';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <AppProvider>
+      <MainProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/camera" element={<CameraPage />} />
+          <Route path="/todos" element={<TodosPage />} />
         </Routes>
-      </AppProvider>
+      </MainProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

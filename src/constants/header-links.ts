@@ -1,7 +1,7 @@
-import { HeaderLinkProps } from "@/types";
+import { HeaderLinkType } from '@/types';
 
-export const headerLinks: HeaderLinkProps[] = [
+export const headerLinks: HeaderLinkType[] = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Camera', path: '/camera' },
+  { label: 'Todos', path: '/todos' },
 ];

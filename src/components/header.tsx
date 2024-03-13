@@ -1,10 +1,10 @@
 import { ModeToggle } from '@/components';
 import { headerLinks } from '@/constants/header-links';
 import { cn } from '@/lib/utils';
-import { HeaderLinkProps } from '@/types';
+import { HeaderLinkType } from '@/types';
 import { NavLink } from 'react-router-dom';
 
-const HeaderLink = (link: HeaderLinkProps) => {
+const HeaderLink = (link: HeaderLinkType) => {
   return (
     <li>
       <NavLink
