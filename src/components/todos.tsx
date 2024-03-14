@@ -6,16 +6,20 @@ import { TodoType } from '@/types';
 import { Checkbox } from './ui/checkbox';
 
 export const TodoList = () => {
-  const { loading, error, data } = useQuery(ALL_TODO);
+  const { loading, error, data } = useQuery(ALL_TODO, {
+    // pollInterval: 500,
+  });
   const [updateTodo, { error: updateError }] = useMutation(UPDATE_TODO);
   const [removeTodo, { error: removeError }] = useMutation(REMOVE_TODO, {
     update: (cache, { data: { removeTodo } }) => {
       cache.modify({
         fields: {
           allTodos: (currentTodos = []) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            return currentTodos.filter((todo: any) => todo.__ref !== `Todo:${removeTodo.id}`);
-          }
+            return currentTodos.filter(
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              (todo: any) => todo.__ref !== `Todo:${removeTodo.id}`
+            );
+          },
         },
       });
     },

@@ -22,15 +22,14 @@ import { TodoType } from '@/types';
 export const AddTodo = () => {
   const [open, setOpen] = useState(false);
   const [addTodo, { error }] = useMutation(ADD_TODO, {
-    // refetchQueries: [{ query: ALL_TODO }],
+    refetchQueries: [{ query: ALL_TODO }],
     update: (cache, { data: { newTodo } }) => {
       const { todos } = cache.readQuery({ query: ALL_TODO }) as {
         todos: TodoType[];
       };
-
       cache.writeQuery({
         query: ALL_TODO,
-        data: { todos: [...todos, newTodo ] },
+        data: { todos: [...todos, newTodo] },
       });
     },
   });
@@ -45,9 +44,10 @@ export const AddTodo = () => {
           completed: false,
           userId: 123,
         },
+      }).then(() => {
+        setTitle('');
+        setOpen(false);
       });
-      setTitle('');
-      setOpen(false);
     }
   };
 
